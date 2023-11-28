@@ -1,7 +1,6 @@
-<!DOCTYPE html>
+@extends('top')
 
-<title>Local Flower Hub</title>
-
-<body>
-    <h1>Welcome to your local flower hub</h1>
-</body>
+@section('content')
+    <!-- Add your specific content for the welcome page here -->
+    <p>This is the content of the welcome page.</p>
+@endsection
