@@ -15,9 +15,9 @@
             </div>
             <div class="flex items-center space-x-4">
                 <p class="cursor-pointer">Search</p>
-                <p class="cursor-pointer">Hello, sign in</p>
+                <p class="cursor-pointer"><a href="/login">Hello, sign in</a></p>
                 <div class="flex items-center space-x-4">
-                    <p class="cursor-pointer">Account</p>
+                    <p class="cursor-pointer"><a href="/profile">Account</a></p>
                     <p class="cursor-pointer">Orders</p>
                     <p class="cursor-pointer">Cart</p>
                 <p class="cursor-pointer">Eng/Lv</p>                    
