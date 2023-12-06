@@ -11,7 +11,7 @@
     <div class="bg-green-500 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div>
-                <h1 class="text-2xl font-bold">Local Flower Hub</h1>
+                <h1 class="text-2xl font-bold"><a href="/">Local Flower Hub</a></h1>
             </div>
             <div class="flex items-center space-x-4">
                 <p class="cursor-pointer">Search</p>
