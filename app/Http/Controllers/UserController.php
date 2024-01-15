@@ -18,8 +18,8 @@ class UserController extends Controller
     {
         // Validate the user
         $attributes = request()->validate([
-            'name' => ['required', 'min:3', 'max:255'],
-            'email' => ['required', 'email', 'max:255'],
+            'name' => ['required', 'min:3', 'max:255', 'unique:users,name'],
+            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'confirmed', 'min:7', 'max:255'],
         ]);
 
@@ -27,6 +27,6 @@ class UserController extends Controller
         User::create($attributes);
 
         // Return to home page
-        return redirect('/');
+        return redirect('/')->with('success', 'Your account has been created!');
     }
 }

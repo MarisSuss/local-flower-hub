@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Flower Hub</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 </head>
 <body class="bg-gray-100">
 
@@ -28,6 +29,9 @@
     <main class="container mx-auto mt-4">
         @yield('content')
     </main>
+
+    <!-- Flash for registration success -->
+    <x-register-success-message />
 
     <footer class="bg-gray-200 p-4 text-center">
         <p>Contact Us</p>
