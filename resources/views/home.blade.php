@@ -2,5 +2,7 @@
 
 @section('content')
   <p>This is Home</p>
-  <a href="/register">Register</a>
+  @guest
+    <a href="/register">Register</a>
+  @endguest
 @endsection

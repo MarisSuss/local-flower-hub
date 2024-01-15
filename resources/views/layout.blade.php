@@ -16,12 +16,19 @@
             </div>
             <div class="flex items-center space-x-4">
                 <p class="cursor-pointer">Search</p>
-                <p class="cursor-pointer"><a href="/log-in">Hello, sign in</a></p>
                 <div class="flex items-center space-x-4">
-
                     <p class="cursor-pointer">Orders</p>
                     <p class="cursor-pointer">Cart</p>                 
                 </div>
+                @auth
+                    <p>Hello, {{ auth()->user()->name }}</p>
+                    <form action="/logout" method="POST" class="inline-block">
+                        @csrf
+                        <button type="submit" class="text-white">Log Out</button>
+                    </form>
+                @else
+                    <p class="cursor-pointer"><a href="/login">Hello, Sign in or register</a></p>
+                @endauth
             </div>
         </div>
     </div>
@@ -30,8 +37,8 @@
         @yield('content')
     </main>
 
-    <!-- Flash for registration success -->
-    <x-register-success-message />
+    <!-- Flash for success -->
+    <x-success-message />
 
     <footer class="bg-gray-200 p-4 text-center">
         <p>Contact Us</p>

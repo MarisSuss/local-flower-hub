@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    // Create a new user
+    // Register page
     public function create()
     {
         return view('user.create');
@@ -24,7 +24,9 @@ class UserController extends Controller
         ]);
 
         // Create and save the user
-        User::create($attributes);
+        $user = User::create($attributes);
+
+        auth()->login($user);
 
         // Return to home page
         return redirect('/')->with('success', 'Your account has been created!');

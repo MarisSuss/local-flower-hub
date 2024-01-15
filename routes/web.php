@@ -2,27 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
- */
-
+Route::get('/home', function () {
+    return view('home');
+});
 Route::get('/', function () {
     return view('home');
 });
 
-// Stores
-Route::get('add-store', function () {
-    return view('add-store');
-});
+// Registration
+Route::get('register', [App\Http\Controllers\UserController::class, 'create'])->middleware('guest');
+Route::post('register', [App\Http\Controllers\UserController::class, 'store'])->middleware('guest');
 
-// User
+// Todo edit profile
 
-Route::get('register', [App\Http\Controllers\UserController::class, 'create']);
-Route::post('register', [App\Http\Controllers\UserController::class, 'store']);
+// Login/ logout
+Route::get('login', [App\Http\Controllers\SessionsController::class, 'create'])->middleware('guest');
+Route::post('login', [App\Http\Controllers\SessionsController::class, 'store'])->middleware('guest');
+Route::post('logout', [App\Http\Controllers\SessionsController::class, 'destroy'])->middleware('auth');
+
+
