@@ -1,13 +1,13 @@
 # Local Flower Hub
 
+<strong>Local Flower Hub</strong> unites customer with flower shops and suppliers.
+
 ## Table of Contents
 
 - [Introduction](#local-flower-hub)
 - [Features](#features)
 - [How it Works](#how-it-works)
 - [Installation](#installation)
-
-<strong>Local Flower Hub</strong> unites customer with flower shops and suppliers.
 
 ## Features
 
