@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Store; // Import the Store model
+use App\Models\User;
 use Illuminate\Validation\Rules\Unique;
 
 class StoreController extends Controller
@@ -23,6 +24,8 @@ class StoreController extends Controller
 
         Store::create($attributes);
 
-        return redirect('/home')->with('success', 'Your store profile has been created!');
+        User::where('id', auth()->id())->update(['type' => 'store']);
+
+        return redirect('/home')->with('success', 'Your profile has been updated to store owenr!');
     }
 }

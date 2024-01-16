@@ -25,3 +25,7 @@ Route::get('profile', [App\Http\Controllers\ProfileController::class, 'create'])
 
 Route::get('add-store', [App\Http\Controllers\StoreController::class, 'create'])->middleware('auth');
 Route::post('add-store', [App\Http\Controllers\StoreController::class, 'store'])->middleware('auth');
+
+// Cart
+
+Route::get('cart', [App\Http\Controllers\CartController::class, 'create'])->middleware('auth');

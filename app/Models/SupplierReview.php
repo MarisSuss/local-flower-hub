@@ -5,15 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class SupplierReview extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'location',
-        'work_hours',
+    public $fillable = [
+        'supplier_id',
+        'user_id',
+        'review',
+        'rating',
     ];
+
+    public function supplier()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function user()
     {

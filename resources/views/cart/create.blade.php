@@ -1,6 +1,6 @@
 @extends('layout')
 
 @section('content')
-  <p>This is Home</p>
+  <p>This is you Cart</p>
 
 @endsection

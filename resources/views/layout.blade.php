@@ -18,7 +18,10 @@
                 <p class="cursor-pointer">Search</p>
                 <div class="flex items-center space-x-4">
                     <p class="cursor-pointer">Orders</p>
-                    <p class="cursor-pointer">Cart</p>                 
+                    <form action="/cart" method="GET" class="inline-block">
+                        @csrf
+                        <button type="submit" class="text-white">Cart</button>
+                    </form>               
                 </div>
                 @auth
                     <form action="/profile" method="GET" class="inline-block">
