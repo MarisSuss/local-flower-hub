@@ -21,7 +21,10 @@
                     <p class="cursor-pointer">Cart</p>                 
                 </div>
                 @auth
-                    <p class="cursor-pointer">Hello, {{ auth()->user()->name }}</p>
+                    <form action="/profile" method="GET" class="inline-block">
+                        @csrf
+                        <button type="submit" class="text-white">Hello, {{ auth()->user()->name }}</button>
+                    </form>
                     <form action="/logout" method="POST" class="inline-block">
                         @csrf
                         <button type="submit" class="text-white">Log Out</button>

@@ -18,7 +18,8 @@ Route::get('login', [App\Http\Controllers\SessionsController::class, 'create'])-
 Route::post('login', [App\Http\Controllers\SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [App\Http\Controllers\SessionsController::class, 'destroy'])->middleware('auth');
 
-// Todo edit profile
+// Todo profile
+Route::get('profile', [App\Http\Controllers\ProfileController::class, 'create'])->middleware('auth');
 
 // Todo add store profile
 
