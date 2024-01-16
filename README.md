@@ -7,7 +7,7 @@
 - [How it Works](#how-it-works)
 - [Installation](#installation)
 
-<strong>Local Flower Hub</strong> unites customer with flower shops and suppliers. It allows:
+<strong>Local Flower Hub</strong> unites customer with flower shops and suppliers.
 
 ## Features
 
