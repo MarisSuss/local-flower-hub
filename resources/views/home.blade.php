@@ -2,7 +2,5 @@
 
 @section('content')
   <p>This is Home</p>
-  @guest
-    <a href="/register">Register</a>
-  @endguest
+    <a href="/add-store">Add store profile</a>
 @endsection

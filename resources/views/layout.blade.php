@@ -21,13 +21,13 @@
                     <p class="cursor-pointer">Cart</p>                 
                 </div>
                 @auth
-                    <p>Hello, {{ auth()->user()->name }}</p>
+                    <p class="cursor-pointer">Hello, {{ auth()->user()->name }}</p>
                     <form action="/logout" method="POST" class="inline-block">
                         @csrf
                         <button type="submit" class="text-white">Log Out</button>
                     </form>
                 @else
-                    <p class="cursor-pointer"><a href="/login">Hello, Sign in or register</a></p>
+                    <p class="cursor-pointer"><a href="/login">Hello, sign in or register</a></p>
                 @endauth
             </div>
         </div>
