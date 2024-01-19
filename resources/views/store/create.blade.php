@@ -1,6 +1,9 @@
 @extends('layout')
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <div class="max-w-md mx-auto my-8">
         <main>
             <form method="POST" action="add-store" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -38,21 +41,55 @@
                     @enderror
                 </div>
 
-                <!-- Work Hours -->
+                <!-- Work Hours for Each Day -->
                 <div class="mb-4">
-                    <label for="work_hours" class="block text-gray-700 text-sm font-bold mb-2">Work Hours</label>
-                    <input  type="text"
-                            name="work_hours"
-                            id="work_hours"
-                            value="{{ old('work_hours') }}"
-                            required
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    >
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Work Hours (Per Day)</label>
+                    
+                    @for ($day = 1; $day <= 7; $day++)
+                        <div class="mb-2">
+                            <label for="work_start_time_day_{{ $day }}" class="text-gray-600">{{ ucfirst(\Carbon\Carbon::now()->startOfWeek()->addDays($day - 1)->format('l')) }}</label>
+                            <div class="flex">
+                                <input type="text"
+                                    name="work_start_time_day_{{ $day }}"
+                                    id="work_start_time_day_{{ $day }}"
+                                    value="{{ old('work_start_time_day_' . $day) }}"
+                                    placeholder="Start Time"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                >
+                                <span class="mx-2">to</span>
+                                <input type="text"
+                                    name="work_end_time_day_{{ $day }}"
+                                    id="work_end_time_day_{{ $day }}"
+                                    value="{{ old('work_end_time_day_' . $day) }}"
+                                    placeholder="End Time"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                >
+                            </div>
+                        </div>
+                    @endfor
 
-                    @error('work_hours')
-                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
+                    <small class="text-gray-600">Please enter work hours in the format: HH:MM AM/PM</small>
                 </div>
+
+                <!-- Initialize Flatpickr for the work hours input -->
+                <script>
+                    // Initialize Flatpickr for each day's start and end times
+                    for (let day = 1; day <= 7; day++) {
+                        flatpickr(`#work_start_time_day_${day}`, {
+                            enableTime: true,
+                            noCalendar: true,
+                            dateFormat: "h:i K",
+                            time_24hr: false
+                        });
+
+                        flatpickr(`#work_end_time_day_${day}`, {
+                            enableTime: true,
+                            noCalendar: true,
+                            dateFormat: "h:i K",
+                            time_24hr: false
+                        });
+                    }
+                </script>
 
                 <!-- Submit -->
                 <div class="flex items-center justify-between">

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class RegisterSuccessMessage extends Component
+class SuccessMessage extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class RegisterSuccessMessage extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.register-success-message');
+        return view('components.success-message');
     }
 }
